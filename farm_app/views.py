@@ -18,12 +18,12 @@ from rest_framework import permissions
 class ExtendedUserLists(generics.ListCreateAPIView):
     queryset = ExtendedUser.objects.all()
     serializer_class = ExtendedUserSerializers
-    permission_classes = [permissions.IsAuthenticated]
+    # permission_classes = [permissions.IsAuthenticated]
 
 
 class ExtendedUserRetrieveUpdate(generics.RetrieveUpdateAPIView):
     serializer_class = ExtendedUserSerializers
-    permission_classes = [permissions.IsAuthenticated]
+    # permission_classes = [permissions.IsAuthenticated]
 
     def get_queryset(self):
         user = self.request.user
@@ -32,12 +32,12 @@ class ExtendedUserRetrieveUpdate(generics.RetrieveUpdateAPIView):
 class FarmerLists(generics.ListCreateAPIView):
     queryset = FarmerDetail.objects.all()
     serializer_class = FarmerDetailSerializers
-    permission_classes = [permissions.IsAuthenticated]
+    # permission_classes = [permissions.IsAuthenticated]
 
 
 class FarmerRetrieveUpdate(generics.RetrieveUpdateAPIView):
     serializer_class = FarmerDetailSerializers
-    permission_classes = [permissions.IsAuthenticated]
+    # permission_classes = [permissions.IsAuthenticated]
 
     def get_queryset(self):
         user = self.request.user
@@ -47,13 +47,13 @@ class FarmerRetrieveUpdate(generics.RetrieveUpdateAPIView):
 class LandLists(generics.ListCreateAPIView):
     queryset = Land.objects.all()
     serializer_class = LandSerializers
-    permission_classes = [permissions.IsAuthenticated]
+    # permission_classes = [permissions.IsAuthenticated]
 
 
 
 class LandRetrieveUpdateDestroy(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = LandSerializers
-    permission_classes = [permissions.IsAuthenticated]
+    # permission_classes = [permissions.IsAuthenticated]
     
     def get_queryset(self):
         user = self.request.user
