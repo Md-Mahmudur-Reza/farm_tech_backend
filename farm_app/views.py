@@ -15,14 +15,46 @@ from rest_framework.decorators import api_view, permission_classes
 from rest_framework import permissions
 
 
-class ExtendedUserLists(generics.ListAPIView):
+class ExtendedUserLists(generics.ListCreateAPIView):
     queryset = ExtendedUser.objects.all()
     serializer_class = ExtendedUserSerializers
+    permission_classes = [permissions.IsAuthenticated]
+
+
+class ExtendedUserRetrieveUpdate(generics.RetrieveUpdateAPIView):
+    serializer_class = ExtendedUserSerializers
+    permission_classes = [permissions.IsAuthenticated]
+
+    def get_queryset(self):
+        user = self.request.user
+        return ExtendedUser.objects.filter(user = user)
     
-class FarmerLists(generics.ListAPIView):
+class FarmerLists(generics.ListCreateAPIView):
     queryset = FarmerDetail.objects.all()
     serializer_class = FarmerDetailSerializers
+    permission_classes = [permissions.IsAuthenticated]
 
-class LandLists(generics.ListAPIView):
+
+class FarmerRetrieveUpdate(generics.RetrieveUpdateAPIView):
+    serializer_class = FarmerDetailSerializers
+    permission_classes = [permissions.IsAuthenticated]
+
+    def get_queryset(self):
+        user = self.request.user
+        return FarmerDetail.objects.filter(extendeduser__user = user)
+
+
+class LandLists(generics.ListCreateAPIView):
     queryset = Land.objects.all()
     serializer_class = LandSerializers
+    permission_classes = [permissions.IsAuthenticated]
+
+
+
+class LandRetrieveUpdateDestroy(generics.RetrieveUpdateDestroyAPIView):
+    serializer_class = LandSerializers
+    permission_classes = [permissions.IsAuthenticated]
+    
+    def get_queryset(self):
+        user = self.request.user
+        return Land.objects.filter(extendeduser__user = user)

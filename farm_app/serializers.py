@@ -4,15 +4,16 @@ from django.contrib.auth.models import User
 from django.utils.timezone import now
 
 class ExtendedUserSerializers(serializers.ModelSerializer):
-    extendeduser_name = serializers.SerializerMethodField()
-
+    # extendeduser_name = serializers.SerializerMethodField()
+    user_name = serializers.ReadOnlyField(source = 'user.username')
     class Meta:
         model = ExtendedUser
-        fields = '__all__'
+        fields = ['user','user_name', 'designation', 'email', 'about_me']
 
-    def get_extendeduser_name(self, obj):
-        user = User.objects.get(id=obj.user.id)
-        return user.username
+    # same thing
+    # def get_extendeduser_name(self, obj):
+    #     user = User.objects.get(id=obj.user.id)
+    #     return user.username
 
 
 class FarmerDetailSerializers(serializers.ModelSerializer):
