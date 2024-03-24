@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import ExtendedUser, FarmerDetail, Land, LandApplication, LandAgreement
+from .models import ExtendedUser, FarmerDetail, Land, LandApplication, LandAgreement, Storage
 # from django.contrib.auth.models import User
 from django.utils.timezone import now
 from django.contrib.auth import get_user_model
@@ -77,3 +77,9 @@ class LandAgreementSerializers(serializers.ModelSerializer):
     class Meta:
         model = LandAgreement
         fields = ['id','landowner', 'landowner_name', 'farmer','farmer_name', 'landid', 'agreement_duration', 'agreement_starting_date','product_planning_to_produce', 'facility_and_equipment_agreed_to', 'agreement_description']
+
+
+class StorageSerializers(serializers.ModelSerializer):
+    class Meta:
+        model = Storage
+        fields = '__all__'

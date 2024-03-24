@@ -15,8 +15,10 @@ urlpatterns = [
     path('api/lands/<int:pk>', views.LandRetrieveUpdateDestroy.as_view()),
     path('api/landapplications', views.LandApplicationLists.as_view()),
     path('api/landapplications/<int:pk>', views.LandApplicationRetrieveUpdateDestroy.as_view()),
-    
+    path('api/agreements', views.LandAgreementLists.as_view()),
+    path('api/agreements/<int:pk>', views.LandAgreementRetrieveUpdateDestroy.as_view()),
+    path('api/storage', views.StorageLists.as_view()),
 
 
-    path('api-auth/', include('rest_framework.urls'))
+    path('api-auth/', include('rest_framework.urls')),
 ]

@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from rest_framework import generics
-from .models import ExtendedUser, FarmerDetail, Land, LandApplication
-from .serializers import ExtendedUserSerializers, FarmerDetailSerializers, LandSerializers, LandApplicationSerializers, UserRegistrationSerializer, UserLoginSerializer
+from .models import ExtendedUser, FarmerDetail, Land, LandApplication, LandAgreement, Storage
+from .serializers import ExtendedUserSerializers, FarmerDetailSerializers, LandSerializers, LandApplicationSerializers, LandAgreementSerializers,StorageSerializers, UserRegistrationSerializer, UserLoginSerializer
 from django.contrib.auth.models import User
 from django.views.decorators.csrf import csrf_exempt
 from rest_framework.decorators import api_view
@@ -30,7 +30,7 @@ class UserLoginView(views.APIView):
             user = authenticate(username=serializer.validated_data['username'], password=serializer.validated_data['password'])
             if user:
                 login(request, user)
-                return Response({"message": "User logged in successfully."})
+                return Response({"message": "User logged in successfully.", "user_id":request.user.id})
             return Response({"message": "Invalid credentials."}, status=status.HTTP_401_UNAUTHORIZED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     
@@ -89,3 +89,19 @@ class LandApplicationRetrieveUpdateDestroy(generics.RetrieveUpdateDestroyAPIView
     def get_queryset(self):
         user = self.request.user
         return Land.objects.filter(extendeduser__user = user)
+    
+
+class LandAgreementLists(generics.ListCreateAPIView):
+    queryset = LandAgreement.objects.all()
+    serializer_class = LandAgreementSerializers
+
+class LandAgreementRetrieveUpdateDestroy(generics.RetrieveUpdateDestroyAPIView):
+    serializer_class = LandAgreementSerializers
+
+    def get_queryset(self):
+        user = self.request.user
+        return Land.objects.filter(extendeduser__user = user)
+    
+class StorageLists(generics.ListCreateAPIView):
+    queryset = Storage.objects.all()
+    serializer_class = StorageSerializers

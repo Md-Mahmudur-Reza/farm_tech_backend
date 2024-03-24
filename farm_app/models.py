@@ -193,3 +193,24 @@ class LandAgreement(models.Model):
     agreement_description = models.TextField(blank=True, null=True)
 
 
+class Storage(models.Model):
+    name = models.CharField(max_length=255, null=True)
+    latitude = models.FloatField()
+    longitude = models.FloatField()
+    street_address = models.CharField(max_length=255)
+    city = models.CharField(max_length=100)
+    province = models.CharField(
+        max_length=100,
+        choices=ProvinceChoices.choices,
+        null = True
+    )
+    capacity = models.PositiveIntegerField()
+    crop_type = models.CharField(
+        max_length=100,
+        choices=ProductChoices.choices,
+        null = True,
+    )
+    min_renting_period = models.PositiveIntegerField()
+
+    def __str__(self):
+        return self.name
