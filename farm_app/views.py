@@ -1,9 +1,10 @@
 from django.shortcuts import render
 from rest_framework import generics
-from .models import ExtendedUser, FarmerDetail, Land, LandApplication, LandAgreement, Storage
-from .serializers import ExtendedUserSerializers, FarmerDetailSerializers, LandSerializers, LandApplicationSerializers, LandAgreementSerializers,StorageSerializers, UserRegistrationSerializer, UserLoginSerializer
+from .models import ExtendedUser, FarmerDetail, Land, LandApplication, LandAgreement
+from .serializers import ExtendedUserSerializers, FarmerDetailSerializers, LandSerializers, LandApplicationSerializers, LandAgreementSerializers, UserRegistrationSerializer, UserLoginSerializer
 from django.contrib.auth.models import User
 from django.views.decorators.csrf import csrf_exempt
+from django.utils.decorators import method_decorator
 from rest_framework.decorators import api_view
 from rest_framework.decorators import parser_classes
 from rest_framework.response import Response
@@ -34,18 +35,19 @@ class UserLoginView(views.APIView):
             return Response({"message": "Invalid credentials."}, status=status.HTTP_401_UNAUTHORIZED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     
+# @method_decorator(csrf_exempt, name='dispatch')
 class ExtendedUserLists(generics.ListCreateAPIView):
     queryset = ExtendedUser.objects.all()
     serializer_class = ExtendedUserSerializers
     # permission_classes = [permissions.IsAuthenticated]
 
-
+# @method_decorator(csrf_exempt, name='dispatch')
 class ExtendedUserRetrieveUpdate(generics.RetrieveUpdateAPIView):
     serializer_class = ExtendedUserSerializers
     # permission_classes = [permissions.IsAuthenticated]
 
     def get_queryset(self):
-        user = self.request.user
+        user = self.request.user.id
         return ExtendedUser.objects.filter(user = user)
     
 class FarmerLists(generics.ListCreateAPIView):
@@ -102,6 +104,3 @@ class LandAgreementRetrieveUpdateDestroy(generics.RetrieveUpdateDestroyAPIView):
         user = self.request.user
         return Land.objects.filter(extendeduser__user = user)
     
-class StorageLists(generics.ListCreateAPIView):
-    queryset = Storage.objects.all()
-    serializer_class = StorageSerializers

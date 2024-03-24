@@ -1,7 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.utils.translation import gettext_lazy as _
-from django.contrib.auth.models import AbstractUser
 
 
 class Designation(models.TextChoices):
@@ -14,7 +13,6 @@ class ExtendedUser(models.Model):
     designation = models.CharField(
         max_length=1, choices=Designation.choices, default=Designation.ADMIN, null=False
     )
-    email = models.CharField(max_length=255, null=True)
     about_me = models.TextField(null=True)
 
     def __str__(self):
@@ -130,6 +128,8 @@ class ExperienceNeededChoices(models.TextChoices):
 class Land(models.Model):
     extendeduser = models.ForeignKey(ExtendedUser, on_delete=models.CASCADE)
     image = models.ImageField(upload_to='images/')
+    latitude = models.FloatField()
+    longitude = models.FloatField()
     street_address = models.CharField(max_length=255, null=True)
     city = models.CharField(max_length=255, null=True)
     province = models.CharField(max_length=100,
@@ -193,24 +193,3 @@ class LandAgreement(models.Model):
     agreement_description = models.TextField(blank=True, null=True)
 
 
-class Storage(models.Model):
-    name = models.CharField(max_length=255, null=True)
-    latitude = models.FloatField()
-    longitude = models.FloatField()
-    street_address = models.CharField(max_length=255)
-    city = models.CharField(max_length=100)
-    province = models.CharField(
-        max_length=100,
-        choices=ProvinceChoices.choices,
-        null = True
-    )
-    capacity = models.PositiveIntegerField()
-    crop_type = models.CharField(
-        max_length=100,
-        choices=ProductChoices.choices,
-        null = True,
-    )
-    min_renting_period = models.PositiveIntegerField()
-
-    def __str__(self):
-        return self.name
