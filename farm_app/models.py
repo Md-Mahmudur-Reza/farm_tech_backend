@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.utils.translation import gettext_lazy as _
+from os.path import basename
 
 
 class Designation(models.TextChoices):
@@ -29,6 +30,18 @@ class ProductChoices(models.TextChoices):
     SEEDS = 'Seeds, seedlings or nursery stock', _('Seeds, seedlings or nursery stock')
     VEGETABLES = 'Vegetables', _('Vegetables')
     OTHER_PRODUCTS = 'Other products', _('Other products')
+
+class Product(models.Model):
+    product_item = models.CharField(
+        max_length=100,
+        choices=ProductChoices.choices,
+        null = True,
+    )
+
+    def __str__(self):
+        return self.product_item
+
+
 class EquipmentChoices(models.TextChoices):
     HOUSING = 'Housing', _('Housing')
     IRRIGATION_CAPACITY = 'Irrigation capacity', _('Irrigation capacity')
@@ -55,12 +68,8 @@ class ProvinceChoices(models.TextChoices):
     YUKON = 'Yukon', _('Yukon')
 class FarmerDetail(models.Model):
     extendeduser = models.ForeignKey(ExtendedUser, on_delete=models.CASCADE)
-    experience = models.IntegerField()
-    product_planning_to_produce = models.CharField(
-        max_length=100,
-        choices=ProductChoices.choices,
-        null = True,
-    )
+    experience = models.IntegerField(null = True)
+    product_planning_to_produce = models.ManyToManyField(Product)
     equipment_needed = models.CharField(
         max_length=100,
         choices=EquipmentChoices.choices,
@@ -124,10 +133,15 @@ class ExperienceNeededChoices(models.TextChoices):
     SIX_TO_TEN_YEARS = '6-10 years', _('6-10 years')
     NO_PREFERENCE = 'No preference', _('No preference')
 
+class Image(models.Model):
+    photo = models.ImageField(upload_to='images/')
+
+    def __str__(self):
+        return basename(self.photo.name)
 
 class Land(models.Model):
     extendeduser = models.ForeignKey(ExtendedUser, on_delete=models.CASCADE)
-    image = models.ImageField(upload_to='images/')
+    land_image = models.ManyToManyField(Image)
     latitude = models.FloatField()
     longitude = models.FloatField()
     street_address = models.CharField(max_length=255, null=True)
@@ -166,11 +180,7 @@ class LandApplication(models.Model):
     farmer = models.ForeignKey(ExtendedUser, on_delete=models.CASCADE, related_name='land_applications_applied')
     landid = models.ForeignKey(Land, on_delete=models.CASCADE)
     application_date = models.DateField(auto_now_add=True)
-    farmer_interested_to_produce = models.CharField(
-        max_length=100,
-        choices=ProductChoices.choices,
-        null = True,
-    )
+    farmer_interested_to_produce = models.ManyToManyField(Product)
 
     # def __str__(self):
         # return self
@@ -181,11 +191,7 @@ class LandAgreement(models.Model):
     landid = models.ForeignKey(Land, on_delete=models.CASCADE)
     agreement_duration = models.CharField(max_length=255, null=True)
     agreement_starting_date = models.DateField(auto_now_add=True)
-    product_planning_to_produce = models.CharField(
-        max_length=100,
-        choices=ProductChoices.choices,
-        null = True,
-    )
+    product_planning_to_produce = models.ManyToManyField(Product)
     facility_and_equipment_agreed_to = models.CharField(
         max_length=100,
         choices=FacilityAndEquipmentChoices.choices,
