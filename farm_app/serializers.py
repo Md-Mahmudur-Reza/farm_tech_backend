@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import ExtendedUser, FarmerDetail, Land, LandApplication, LandAgreement
+from .models import ExtendedUser, FarmerDetail, Land, LandApplication, LandAgreement, Product
 # from django.contrib.auth.models import User
 from django.utils.timezone import now
 from django.contrib.auth import get_user_model
@@ -37,17 +37,22 @@ class ExtendedUserSerializers(serializers.ModelSerializer):
     #     user = User.objects.get(id=obj.user.id)
     #     return user.username
 
+class ProductSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Product
+        fields = ['id', 'product_item']  
 
 class FarmerDetailSerializers(serializers.ModelSerializer):
-    farmer_name = serializers.SerializerMethodField()
+    farmer_name = serializers.ReadOnlyField(source = 'extendeduser.user.username')
+    product_planning_to_produce = ProductSerializer(many=True)
 
     class Meta:
         model = FarmerDetail
-        fields = '__all__'
+        fields = ['id', 'extendeduser', 'farmer_name', 'experience', 'product_planning_to_produce', 'equipment_needed', 'province_to_farm']
 
-    def get_farmer_name(self, obj):
-        user = User.objects.get(id=obj.extendeduser.user.id)
-        return user.username
+    # def get_farmer_name(self, obj):
+    #     user = User.objects.get(id=obj.extendeduser.user.id)
+    #     return user.username
 
 
 class LandSerializers(serializers.ModelSerializer):
