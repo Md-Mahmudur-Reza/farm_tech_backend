@@ -28,7 +28,10 @@ class ProvinceChoices(models.TextChoices):
     SASKATCHEWAN = 'Saskatchewan', _('Saskatchewan')
     YUKON = 'Yukon', _('Yukon')
 
-
+class StatusChoices(models.TextChoices):
+    ACCEPTED = 'Accepted', _('Accepted')
+    PENDING = 'Pending', _('Pending')
+    REJECTED = 'Rejected', _('Rejected')
 class Storage(models.Model):
     name = models.CharField(max_length=255)
     latitude = models.FloatField()
@@ -47,6 +50,11 @@ class Storage(models.Model):
         null = True,
     )
     min_renting_period = models.PositiveIntegerField()
+    status = models.CharField(
+        max_length=100,
+        choices=StatusChoices.choices,
+        default = StatusChoices.PENDING,
+    )
 
     def __str__(self):
         return self.name

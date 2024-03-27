@@ -15,6 +15,8 @@ from rest_framework import status, views
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework import permissions
 from django.contrib.auth import authenticate, login
+from django.db.models import Q
+from rest_framework.exceptions import PermissionDenied
 
 class UserRegistrationView(views.APIView):
     def post(self, request, *args, **kwargs):
@@ -90,7 +92,13 @@ class LandApplicationRetrieveUpdateDestroy(generics.RetrieveUpdateDestroyAPIView
 
     def get_queryset(self):
         user = self.request.user
-        return Land.objects.filter(extendeduser__user = user)
+        if not user.is_authenticated:
+            raise PermissionDenied("You must be logged in to access this resource.")
+        queryset = LandApplication.objects.filter(Q(landowner__user=user) | Q(farmer__user=user))
+        if not queryset.exists():
+            raise PermissionDenied("You do not have access to this resource.")
+        return queryset
+
     
 
 class LandAgreementLists(generics.ListCreateAPIView):
@@ -100,7 +108,12 @@ class LandAgreementLists(generics.ListCreateAPIView):
 class LandAgreementRetrieveUpdateDestroy(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = LandAgreementSerializers
 
+
     def get_queryset(self):
         user = self.request.user
-        return Land.objects.filter(extendeduser__user = user)
-    
+        if not user.is_authenticated:
+            raise PermissionDenied("You must be logged in to access this resource.")
+        queryset = LandAgreement.objects.filter(Q(landowner__user=user) | Q(farmer__user=user))
+        if not queryset.exists():
+            raise PermissionDenied("You do not have access to this resource.")
+        return queryset

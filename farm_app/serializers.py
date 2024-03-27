@@ -68,7 +68,7 @@ class LandApplicationSerializers(serializers.ModelSerializer):
     land_street_address = serializers.ReadOnlyField(source = 'land.street_address')
     class Meta:
         model = LandApplication
-        fields = ['id','landowner', 'landowner_name', 'farmer','farmer_name', 'landid', 'land_street_address', 'application_date','farmer_interested_to_produce']
+        fields = ['id','landowner', 'landowner_name', 'farmer','farmer_name', 'landid', 'land_street_address', 'application_date','farmer_interested_to_produce', 'status']
 
 
 class LandAgreementSerializers(serializers.ModelSerializer):

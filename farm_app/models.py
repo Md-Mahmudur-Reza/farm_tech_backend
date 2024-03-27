@@ -173,7 +173,11 @@ class Land(models.Model):
 
     def __str__(self):
         return (self.extendeduser.user.username +" - "+self.street_address)
-    
+
+class StatusChoices(models.TextChoices):
+    ACCEPTED = 'Accepted', _('Accepted')
+    PENDING = 'Pending', _('Pending')
+    REJECTED = 'Rejected', _('Rejected')
 
 class LandApplication(models.Model):
     landowner = models.ForeignKey(ExtendedUser, on_delete=models.CASCADE, related_name='land_applications_owned')
@@ -181,6 +185,11 @@ class LandApplication(models.Model):
     landid = models.ForeignKey(Land, on_delete=models.CASCADE)
     application_date = models.DateField(auto_now_add=True)
     farmer_interested_to_produce = models.ManyToManyField(Product)
+    status = models.CharField(
+        max_length=100,
+        choices=StatusChoices.choices,
+        default = StatusChoices.PENDING,
+    )
 
     # def __str__(self):
         # return self
