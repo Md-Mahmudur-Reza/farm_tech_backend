@@ -1,0 +1,51 @@
+Region,Population_Density,Avg_Temperature,Sunshine_Hours,Soil_Type,Agricultural_Practices,Crop,Quantity_Produced_in_million_kg,Market_Price
+Ontario,14.8,12.0,2000,Loam,Conventional,Tomato,1.5,20
+Ontario,14.8,12.0,2000,Loam,Conventional,Corn,1.5,20
+Ontario,14.8,12.0,2000,Loam,Conventional,Soybeans,1.5,20
+Ontario,14.8,12.0,2000,Loam,Conventional,Peppers,1.5,20
+Ontario,14.8,12.0,2000,Loam,Conventional,Wheat,1.5,20
+Quebec,6.0,5.5,1800,Clay Loam,Organic,Maple Syrup,1.7,22
+Quebec,6.0,5.5,1800,Clay Loam,Organic,Apples,1.7,22
+Quebec,6.0,5.5,1800,Clay Loam,Organic,Blueberries,1.7,22
+Quebec,6.0,5.5,1800,Clay Loam,Organic,Cranberries,1.7,22
+Quebec,6.0,5.5,1800,Clay Loam,Organic,Strawberries,1.7,22
+Nova Scotia,17.4,6.0,2000,Sandy Loam,Conventional,Lobsters,1.9,24
+Nova Scotia,17.4,6.0,2000,Sandy Loam,Conventional,Scallops,1.9,24
+Nova Scotia,17.4,6.0,2000,Sandy Loam,Conventional,Mussels,1.9,24
+Nova Scotia,17.4,6.0,2000,Sandy Loam,Conventional,Oysters,1.9,24
+Nova Scotia,17.4,6.0,2000,Sandy Loam,Conventional,Clams,1.9,24
+New Brunswick,10.5,6.5,1900,Silt Loam,Organic,Potatoes,2.1,26
+New Brunswick,10.5,6.5,1900,Silt Loam,Organic,Blueberries,2.1,26
+New Brunswick,10.5,6.5,1900,Silt Loam,Organic,Apples,2.1,26
+New Brunswick,10.5,6.5,1900,Silt Loam,Organic,Cranberries,2.1,26
+New Brunswick,10.5,6.5,1900,Silt Loam,Organic,Strawberries,2.1,26
+Manitoba,2.3,2.0,2000,Loamy Sand,Conventional,Canola,2.3,28
+Manitoba,2.3,2.0,2000,Loamy Sand,Conventional,Barley,2.3,28
+Manitoba,2.3,2.0,2000,Loamy Sand,Conventional,Wheat,2.3,28
+Manitoba,2.3,2.0,2000,Loamy Sand,Conventional,Peas,2.3,28
+Manitoba,2.3,2.0,2000,Loamy Sand,Conventional,Flax,2.3,28
+British Columbia,5.0,10.0,1900,Clay,Organic,Apples,2.5,30
+British Columbia,5.0,10.0,1900,Clay,Organic,Grapes,2.5,30
+British Columbia,5.0,10.0,1900,Clay,Organic,Blueberries,2.5,30
+British Columbia,5.0,10.0,1900,Clay,Organic,Cherries,2.5,30
+British Columbia,5.0,10.0,1900,Clay,Organic,Strawberries,2.5,30
+Prince Edward Island,25.1,7.8,2100,Sandy Clay,Conventional,Potatoes,2.7,32
+Prince Edward Island,25.1,7.8,2100,Sandy Clay,Conventional,Blueberries,2.7,32
+Prince Edward Island,25.1,7.8,2100,Sandy Clay,Conventional,Apples,2.7,32
+Prince Edward Island,25.1,7.8,2100,Sandy Clay,Conventional,Cranberries,2.7,32
+Prince Edward Island,25.1,7.8,2100,Sandy Clay,Conventional,Strawberries,2.7,32
+Saskatchewan,1.8,8.0,2200,Peat,Organic,Durum Wheat,2.9,34
+Saskatchewan,1.8,8.0,2200,Peat,Organic,Canola,2.9,34
+Saskatchewan,1.8,8.0,2200,Peat,Organic,Barley,2.9,34
+Saskatchewan,1.8,8.0,2200,Peat,Organic,Lentils,2.9,34
+Saskatchewan,1.8,8.0,2200,Peat,Organic,Peas,2.9,34
+Alberta,5.7,7.0,2400,Chalk,Conventional,Canola,3.1,36
+Alberta,5.7,7.0,2400,Chalk,Conventional,Barley,3.1,36
+Alberta,5.7,7.0,2400,Chalk,Conventional,Wheat,3.1,36
+Alberta,5.7,7.0,2400,Chalk,Conventional,Peas,3.1,36
+Alberta,5.7,7.0,2400,Chalk,Conventional,Flax,3.1,36
+Newfoundland and Labrador,1.4,4.5,1600,Silt,Organic,Cod,3.3,38
+Newfoundland and Labrador,1.4,4.5,1600,Silt,Organic,Salmon,3.3,38
+Newfoundland and Labrador,1.4,4.5,1600,Silt,Organic,Crab,3.3,38
+Newfoundland and Labrador,1.4,4.5,1600,Silt,Organic,Shrimp,3.3,38
+Newfoundland and Labrador,1.4,4.5,1600,Silt,Organic,Lobsters,3.3,38

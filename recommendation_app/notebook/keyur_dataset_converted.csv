@@ -1,0 +1,57 @@
+Region,Population_Density,Avg_Temperature,Sunshine_Hours,Soil_Type,Agricultural_Practices,Crop,Quantity_Produced (in million kg),Market_Price (per kg)
+Alberta,6.4,-2.5°C,2300,Chernozem,Mixed farming,Canola,7.2,$0.35
+Alberta,6.4,-2.5°C,2300,Chernozem,Mixed farming,Wheat,12.5,$0.20
+Alberta,6.4,-2.5°C,2300,Chernozem,Mixed farming,Barley,8.3,$0.25
+Alberta,6.4,-2.5°C,2300,Chernozem,Mixed farming,Potatoes,2.1,$0.50
+Alberta,6.4,-2.5°C,2300,Chernozem,Mixed farming,Peas,3.8,$0.40
+British Columbia,5.0,12.5°C,1800,Podzol,Fruit farming,Blueberries,0.9,$1.50
+British Columbia,5.0,12.5°C,1800,Podzol,Fruit farming,Apples,1.5,$0.80
+British Columbia,5.0,12.5°C,1800,Podzol,Fruit farming,Cherries,0.6,$2.00
+British Columbia,5.0,12.5°C,1800,Podzol,Fruit farming,Grapes,0.8,$1.20
+British Columbia,5.0,12.5°C,1800,Podzol,Fruit farming,Peaches,0.4,$1.80
+Manitoba,5.7,-5.5°C,2100,Chernozem,Grain farming,Wheat,10.8,$0.20
+Manitoba,5.7,-5.5°C,2100,Chernozem,Grain farming,Canola,6.5,$0.35
+Manitoba,5.7,-5.5°C,2100,Chernozem,Grain farming,Barley,5.2,$0.25
+Manitoba,5.7,-5.5°C,2100,Chernozem,Grain farming,Soybeans,3.7,$0.45
+Manitoba,5.7,-5.5°C,2100,Chernozem,Grain farming,Corn,2.9,$0.30
+Ontario,14.7,10.0°C,2200,Luvisol,Mixed farming,Corn,9.2,$0.30
+Ontario,14.7,10.0°C,2200,Luvisol,Mixed farming,Soybeans,7.5,$0.45
+Ontario,14.7,10.0°C,2200,Luvisol,Mixed farming,Wheat,11.3,$0.20
+Ontario,14.7,10.0°C,2200,Luvisol,Mixed farming,Barley,6.8,$0.25
+Ontario,14.7,10.0°C,2200,Luvisol,Mixed farming,Potatoes,1.9,$0.50
+Quebec,6.2,6.5°C,2000,Podzol,Dairy farming,Dairy Products,9.7,$1.80
+Quebec,6.2,6.5°C,2000,Podzol,Dairy farming,Maple Syrup,0.8,$3.50
+Quebec,6.2,6.5°C,2000,Podzol,Dairy farming,Apples,1.2,$0.80
+Quebec,6.2,6.5°C,2000,Podzol,Dairy farming,Potatoes,2.5,$0.50
+Quebec,6.2,6.5°C,2000,Podzol,Dairy farming,Blueberries,0.6,$1.50
+Saskatchewan,2.0,-5.0°C,2200,Chernozem,Grain farming,Wheat,14.5,$0.20
+Saskatchewan,2.0,-5.0°C,2200,Chernozem,Grain farming,Canola,10.2,$0.35
+Saskatchewan,2.0,-5.0°C,2200,Chernozem,Grain farming,Barley,7.8,$0.25
+Saskatchewan,2.0,-5.0°C,2200,Chernozem,Grain farming,Lentils,3.4,$0.60
+Saskatchewan,2.0,-5.0°C,2200,Chernozem,Grain farming,Peas,4.2,$0.40
+Newfoundland and Labrador,1.4,1.5°C,1600,Podzol,Fishing,Cod,23.8,$3.00
+Newfoundland and Labrador,1.4,1.5°C,1600,Podzol,Fishing,Cod,23.8,$3.00
+Newfoundland and Labrador,1.4,1.5°C,1600,Podzol,Fishing,Snow Crab,10.5,$5.50
+Newfoundland and Labrador,1.4,1.5°C,1600,Podzol,Fishing,Lobster,8.7,$9.00
+Newfoundland and Labrador,1.4,1.5°C,1600,Podzol,Fishing,Capelin,4.2,$1.20
+Newfoundland and Labrador,1.4,1.5°C,1600,Podzol,Fishing,Mussels,3.8,$2.50
+Nova Scotia,17.4,8.5°C,2100,Podzol,Fruit farming,Apples,0.8,$0.80
+Nova Scotia,17.4,8.5°C,2100,Podzol,Fruit farming,Blueberries,1.2,$1.50
+Nova Scotia,17.4,8.5°C,2100,Podzol,Fruit farming,Strawberries,0.6,$2.20
+Nova Scotia,17.4,8.5°C,2100,Podzol,Fruit farming,Cranberries,0.9,$1.80
+Nova Scotia,17.4,8.5°C,2100,Podzol,Fruit farming,Grapes,0.4,$1.20
+New Brunswick,10.6,6.8°C,2000,Podzol,Dairy farming,Dairy Products,4.5,$1.80
+New Brunswick,10.6,6.8°C,2000,Podzol,Dairy farming,Potatoes,1.3,$0.50
+New Brunswick,10.6,6.8°C,2000,Podzol,Dairy farming,Blueberries,0.7,$1.50
+New Brunswick,10.6,6.8°C,2000,Podzol,Dairy farming,Apples,0.5,$0.80
+New Brunswick,10.6,6.8°C,2000,Podzol,Dairy farming,Maple Syrup,0.3,$3.50
+Prince Edward Island,25.1,8.1°C,2100,Luvisol,Potato farming,Potatoes,1.8,$0.50
+Prince Edward Island,25.1,8.1°C,2100,Luvisol,Potato farming,Barley,0.6,$0.25
+Prince Edward Island,25.1,8.1°C,2100,Luvisol,Potato farming,Wheat,0.4,$0.20
+Prince Edward Island,25.1,8.1°C,2100,Luvisol,Potato farming,Blueberries,0.3,$1.50
+Prince Edward Island,25.1,8.1°C,2100,Luvisol,Potato farming,Strawberries,0.2,$2.20
+Saskatchewan,2.0,-5.0°C,2200,Chernozem,Grain farming,Wheat,14.5,$0.20
+Saskatchewan,2.0,-5.0°C,2200,Chernozem,Grain farming,Canola,10.2,$0.35
+Saskatchewan,2.0,-5.0°C,2200,Chernozem,Grain farming,Barley,7.8,$0.25
+Saskatchewan,2.0,-5.0°C,2200,Chernozem,Grain farming,Lentils,3.4,$0.60
+Saskatchewan,2.0,-5.0°C,2200,Chernozem,Grain farming,Peas,4.2,$0.40

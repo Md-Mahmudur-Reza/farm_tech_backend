@@ -1,7 +1,5 @@
 from rest_framework import serializers
 from .models import ExtendedUser, FarmerDetail, Land, LandApplication, LandAgreement, Product
-# from django.contrib.auth.models import User
-from django.utils.timezone import now
 from django.contrib.auth import get_user_model
 
 User = get_user_model()
