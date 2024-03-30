@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-2ndg7i*vrk3tjk@i(@7ew^qq(ikgca_km&&@y(nd!ml52^j^k6
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['192.168.2.18']
 
 
 # Application definition
@@ -64,7 +64,12 @@ MIDDLEWARE = [
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
+    "http://localhost:3001",
+    "http://localhost:3002",
     "http://127.0.0.1:3000",
+    "http://127.0.0.1:3001",
+    "http://127.0.0.1:3002",
+    "http://192.168.2.18:3000",
 ]
 
 CORS_ALLOW_CREDENTIALS = True
@@ -98,7 +103,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'farm_tech',
         'USER': 'postgres',
-        'PASSWORD': 'postgres',
+        'PASSWORD': 'harsh',
         'HOST': 'localhost',
         'PORT': '5432'
     }
