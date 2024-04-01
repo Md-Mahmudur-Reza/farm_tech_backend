@@ -93,12 +93,15 @@ class LandApplicationRetrieveUpdateDestroy(generics.RetrieveUpdateDestroyAPIView
     serializer_class = LandApplicationSerializers
 
     def get_queryset(self):
-        user = self.request.user
-        if not user.is_authenticated:
-            raise PermissionDenied("You must be logged in to access this resource.")
-        queryset = LandApplication.objects.filter(Q(landowner__user=user) | Q(farmer__user=user))
-        if not queryset.exists():
-            raise PermissionDenied("You do not have access to this resource.")
+        # untill we use JWT in the frontend
+        # user = self.request.user
+        # if not user.is_authenticated:
+        #     raise PermissionDenied("You must be logged in to access this resource.")
+        # queryset = LandApplication.objects.filter(Q(landowner__user=user) | Q(farmer__user=user))
+        # if not queryset.exists():
+        #     raise PermissionDenied("You do not have access to this resource.")
+        
+        queryset = LandApplication.objects.all()
         return queryset
 
     

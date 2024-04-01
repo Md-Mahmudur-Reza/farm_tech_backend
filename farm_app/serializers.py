@@ -72,6 +72,7 @@ class ImageSerializer(serializers.ModelSerializer):
 
 class LandSerializers(serializers.ModelSerializer):
     land_owner_name = serializers.SerializerMethodField()
+    land_image_names = serializers.SerializerMethodField()
 
     class Meta:
         model = Land
@@ -80,13 +81,17 @@ class LandSerializers(serializers.ModelSerializer):
     def get_land_owner_name(self, obj):
         user = User.objects.get(id=obj.extendeduser.user.id)
         return user.username
+    
+    def get_land_image_names(self, obj):
+        image_names = [image.photo.name for image in obj.land_image.all()]
+        return image_names
 
 
 class LandApplicationSerializers(serializers.ModelSerializer):
     landowner_name = serializers.ReadOnlyField(source = 'extendeduser.user.username')
     farmer_name = serializers.ReadOnlyField(source = 'extendeduser.user.username')
     land_street_address = serializers.ReadOnlyField(source = 'land.street_address')
-    farmer_interested_to_produce_items = ProductSerializer(source='farmer_interested_to_produce', many=True)
+    farmer_interested_to_produce_items = ProductSerializer(source='farmer_interested_to_produce', many=True, read_only=True)
 
     class Meta:
         model = LandApplication
