@@ -115,10 +115,14 @@ class LandAgreementRetrieveUpdateDestroy(generics.RetrieveUpdateDestroyAPIView):
 
 
     def get_queryset(self):
-        user = self.request.user
-        if not user.is_authenticated:
-            raise PermissionDenied("You must be logged in to access this resource.")
-        queryset = LandAgreement.objects.filter(Q(landowner__user=user) | Q(farmer__user=user))
-        if not queryset.exists():
-            raise PermissionDenied("You do not have access to this resource.")
+        # untill we use JWT in the frontend
+        # user = self.request.user
+        # if not user.is_authenticated:
+        #     raise PermissionDenied("You must be logged in to access this resource.")
+        # queryset = LandAgreement.objects.filter(Q(landowner__user=user) | Q(farmer__user=user))
+        # if not queryset.exists():
+        #     raise PermissionDenied("You do not have access to this resource.")
+        # return queryset
+
+        queryset = LandAgreement.objects.all()
         return queryset
